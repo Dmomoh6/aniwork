@@ -9,12 +9,16 @@
               ><b-img
                 v-if="!mobileWidth"
                 :src="
-                  theme === '' ? '/images/logo.svg' : '/images/logo-dark.svg'
+                  theme === 'darkMode'
+                    ? '/images/logo-dark.svg'
+                    : '/images/logo.svg'
                 "
               /><b-img
                 v-else
                 :src="
-                  theme === '' ? '/images/icon.svg' : '/images/icon-dark.svg'
+                  theme === 'darkMode'
+                    ? '/images/icon-dark.svg'
+                    : '/images/icon.svg'
                 "
               />
             </nuxt-link>
@@ -65,60 +69,60 @@ export default {
   components: {},
   data() {
     return {
-      theme: '',
-    }
+      theme: "",
+    };
   },
   computed: {
     mobileWidth() {
-      return this.$store.getters.width < 768
+      return this.$store.getters.width < 768;
     },
     path() {
-      return this.$route.path
+      return this.$route.path;
     },
     isLoading() {
-      return this.$store.getters.generalLoading
+      return this.$store.getters.generalLoading;
     },
   },
   beforeMount() {
-    window.addEventListener('resize', this.resize)
+    window.addEventListener("resize", this.resize);
   },
   mounted() {
-    this.resize()
-    const localTheme = localStorage.getItem('theme')
-    this.theme = localTheme
-    this.$store.dispatch('setTheme', this.theme)
+    this.resize();
+    const localTheme = localStorage.getItem("theme");
+    this.theme = localTheme;
+    this.$store.dispatch("setTheme", this.theme);
 
-    document.documentElement.setAttribute('data-theme', localTheme)
+    document.documentElement.setAttribute("data-theme", localTheme);
   },
 
   methods: {
     resize() {
       if (process.client) {
-        this.$store.dispatch('changeWidth', window.innerWidth)
+        this.$store.dispatch("changeWidth", window.innerWidth);
       }
     },
     toggleTheme() {
-      this.theme = this.theme === 'darkMode' ? '' : 'darkMode'
-      document.documentElement.setAttribute('data-theme', this.theme)
-      this.$store.dispatch('setTheme', this.theme)
-      localStorage.setItem('theme', this.theme)
+      this.theme = this.theme === "darkMode" ? "" : "darkMode";
+      document.documentElement.setAttribute("data-theme", this.theme);
+      this.$store.dispatch("setTheme", this.theme);
+      localStorage.setItem("theme", this.theme);
     },
     navigation(option) {
-      if (this.$route.name === 'index') {
+      if (this.$route.name === "index") {
         window.scrollTo({
           top: document.getElementById(option).offsetTop,
-          behavior: 'smooth',
-        })
+          behavior: "smooth",
+        });
       } else {
-        this.$router.push({ name: 'index' })
+        this.$router.push({ name: "index" });
         setTimeout(() => {
           window.scrollTo({
             top: document.getElementById(option).offsetTop,
-            behavior: 'smooth',
-          })
-        }, 700)
+            behavior: "smooth",
+          });
+        }, 700);
       }
     },
   },
-}
+};
 </script>

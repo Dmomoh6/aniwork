@@ -1,8 +1,8 @@
 <template>
   <div :class="form === 'large' ? 'search-bar' : 'search-bar-mini'">
     <div class="search-input">
-      <img v-if="theme === ''" src="~/assets/svg/search.svg" />
-      <img v-else src="~/assets/svg/search-dark.svg" />
+      <img v-if="theme === 'darkMode'" src="~/assets/svg/search-dark.svg" />
+      <img v-else src="~/assets/svg/search.svg" />
       <input
         v-model="query"
         placeholder="Job Description, Keyword or Company"
@@ -20,34 +20,34 @@ export default {
   props: {
     form: {
       type: String,
-      default: 'large',
+      default: "large",
     },
   },
   data() {
     return {
-      query: '',
-    }
+      query: "",
+    };
   },
   computed: {
     theme() {
-      return this.$store.getters.theme
+      return this.$store.getters.theme;
     },
   },
   methods: {
     async search() {
-      if (this.query !== '') {
-        this.$store.dispatch('changeLoading', true)
-        const jobs = await this.$jobSearchApi.getJobs(this.query)
-        this.$store.dispatch('changeJobs', jobs)
-        this.$store.dispatch('changeLoading', false)
+      if (this.query !== "") {
+        this.$store.dispatch("changeLoading", true);
+        const jobs = await this.$jobSearchApi.getJobs(this.query);
+        this.$store.dispatch("changeJobs", jobs);
+        this.$store.dispatch("changeLoading", false);
 
         this.$router.push({
-          name: 'searchResults',
-        })
+          name: "searchResults",
+        });
       } else {
-        alert('Please enter a Job Description or Keyword')
+        alert("Please enter a Job Description or Keyword");
       }
     },
   },
-}
+};
 </script>
