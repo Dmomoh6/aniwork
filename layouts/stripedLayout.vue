@@ -10,8 +10,8 @@
                 v-if="!mobileWidth"
                 :src="
                   theme === 'darkMode'
-                    ? '/images/logo-dark.svg'
-                    : '/images/logo.svg'
+                    ? '/images/light.svg'
+                    : '/images/dark.svg'
                 "
               /><b-img
                 v-else
