@@ -10,8 +10,8 @@
                 v-if="!mobileWidth"
                 :src="
                   theme === 'darkMode'
-                    ? '/images/light.svg'
-                    : '/images/dark.svg'
+                    ? '/images/logo-dark.svg'
+                    : '/images/logo.svg'
                 "
               /><b-img
                 v-else
@@ -48,7 +48,11 @@
               <b-nav-item @click="toggleTheme"
                 ><img
                   v-if="!mobileWidth"
-                  :src="theme === '' ? '/images/dark.svg' : '/images/light.svg'"
+                  :src="
+                    theme === 'darkMode'
+                      ? '/images/light.svg'
+                      : '/images/dark.svg'
+                  "
                 />
                 <template v-else>Switch Theme</template></b-nav-item
               >
