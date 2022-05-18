@@ -1,0 +1,14 @@
+{
+  "ContactForm": {
+    "description": "Auto imported from components/ContactForm.vue"
+  },
+  "Loading": {
+    "description": "Auto imported from components/Loading.vue"
+  },
+  "SearchBar": {
+    "description": "Auto imported from components/SearchBar.vue"
+  },
+  "ShortText": {
+    "description": "Auto imported from components/ShortText.vue"
+  }
+}

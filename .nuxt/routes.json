@@ -1,0 +1,23 @@
+[
+  {
+    "name": "search",
+    "path": "/search",
+    "component": "/Users/dmomoh/Documents/GitHub/aniwork/pages/search.vue",
+    "chunkName": "pages/search",
+    "_name": "_3022401a"
+  },
+  {
+    "name": "searchResults",
+    "path": "/searchResults",
+    "component": "/Users/dmomoh/Documents/GitHub/aniwork/pages/searchResults.vue",
+    "chunkName": "pages/searchResults",
+    "_name": "_49125c9a"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/dmomoh/Documents/GitHub/aniwork/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_803ef752"
+  }
+]
