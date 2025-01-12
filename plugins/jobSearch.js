@@ -21,8 +21,8 @@ export default function ({ $config }, inject) {
     const jobs = await axios
       .request(options)
       .then(function (response) {
-        console.log(response.data.jobs)
-        return response.data.jobs
+        console.log(response.data)
+        return response.data.data
       })
       .catch(function (error) {
         alert(error + ' please retry')

@@ -3,20 +3,21 @@
     <SearchBar form="mini" />
     <b-container>
       <b-row class="results">
+   
         <b-col v-for="(job, index) in jobList" :key="index" class="result-box">
           <div class="top-info">
-            <h3>{{ job.title }}</h3>
-            <h5>{{ job.company_name || "Not listed" }}</h5>
-            <h5>{{ job.country || "Not listed" }}</h5>
+            <h3>{{ job.job_title }}</h3>
+            <h5>{{ job.employer_name || "Not listed" }}</h5>
+            <h5>{{ job.job_country || "Not listed" }}</h5>
             <p>
-              <short-text :text="job.description" :target="150" />
+              <short-text :text="job.job_description" :target="150" />
             </p>
           </div>
           <div class="bottom-info">
             <p class="time">
-              {{ formatTime(job.date_posted) || "Not listed" }}
+              {{ job.job_posted_at || "Not listed" }}
             </p>
-            <a :href="job.detail_url" target="_blank"
+            <a :href="job.apply_options[0].apply_link" target="_blank"
               ><button>More Info</button></a
             >
           </div></b-col
